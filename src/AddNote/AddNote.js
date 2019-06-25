@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import NotefulForm from '../NotefulForm/NotefulForm'
 import ValidationError from '../ValidationError/ValidationError'
+import PropTypes from 'prop-types'
 import ApiContext from '../ApiContext'
 import config from '../config'
 import './AddNote.css'
@@ -163,4 +164,14 @@ export default class AddNote extends Component {
       </section>
     )
   }
+}
+AddNote.propTypes = {
+  name: PropTypes.string.isRequired,
+  folder: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired
+}
+AddNote.defaultProps = {
+  value: 'Note Name',
+  folder: '12345',
+  content: 'foo bar bizz buzz'
 }
