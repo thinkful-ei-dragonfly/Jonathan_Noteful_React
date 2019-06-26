@@ -11,6 +11,6 @@ export default function ValidationError(props){
 }
 
 ValidationError.propTypes = {
-  hasError: PropTypes.boolean.isRequired,
+  hasError: PropTypes.bool.isRequired,
   message: PropTypes.string.isRequired
 }

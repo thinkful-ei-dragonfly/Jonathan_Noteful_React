@@ -81,11 +81,11 @@ export default class AddNote extends Component {
     const newNote = {
       name: e.target['note-name'].value,
       content: e.target['note-content'].value,
-      folder: parseInt(e.target['note-folder-id'].value),
-      date_published: new Date(),
+      folder_id: e.target['note-folder-id'].value,
+      modified: new Date(),
     }
     console.log(newNote)
-    fetch(`${config.API_ENDPOINT}/api/notes`, {
+    fetch(`${config.API_ENDPOINT}/notes`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -99,7 +99,7 @@ export default class AddNote extends Component {
       })
       .then(note => {
         this.context.addNote(note)
-        this.props.history.push(`/folders/${note.folder}`)
+        this.props.history.push(`/folders/${note.folder_id}`)
       })
       .catch(error => {
         console.error({ error })
@@ -168,11 +168,11 @@ export default class AddNote extends Component {
 }
 AddNote.propTypes = {
   name: PropTypes.string.isRequired,
-  folder: PropTypes.string.isRequired,
+  folder_id: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired
 }
 AddNote.defaultProps = {
   value: 'Note Name',
-  folder: '12345',
+  folder_id: '12345',
   content: 'foo bar bizz buzz'
 }

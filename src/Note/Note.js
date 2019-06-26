@@ -41,7 +41,7 @@ export default class Note extends React.Component {
   }
 
   render() {
-    const { name, id, date_published } = this.props
+    const { name, id, modified } = this.props
     return (
       <div className='Note'>
         <h2 className='Note__title'>
@@ -59,12 +59,12 @@ export default class Note extends React.Component {
           remove
         </button>
         <div className='Note__dates'>
-          <div className='Note__dates-date_published'>
-            date_published
+          <div className='Note__dates-modified'>
+            modified
             {' '}
             <span className='Date'>
             
-              {format(date_published, 'Do MMM YYYY')}
+              {format(modified, 'Do MMM YYYY')}
             </span>
           </div>
         </div>
@@ -74,7 +74,7 @@ export default class Note extends React.Component {
 }
 
 Note.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  date: PropTypes.string.isRequired
+  modified: PropTypes.string.isRequired
 }
