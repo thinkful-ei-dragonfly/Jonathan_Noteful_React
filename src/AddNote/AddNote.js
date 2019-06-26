@@ -81,10 +81,11 @@ export default class AddNote extends Component {
     const newNote = {
       name: e.target['note-name'].value,
       content: e.target['note-content'].value,
-      folderId: e.target['note-folder-id'].value,
-      modified: new Date(),
+      folder: parseInt(e.target['note-folder-id'].value),
+      date_published: new Date(),
     }
-    fetch(`${config.API_ENDPOINT}/notes`, {
+    console.log(newNote)
+    fetch(`${config.API_ENDPOINT}/api/notes`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -98,7 +99,7 @@ export default class AddNote extends Component {
       })
       .then(note => {
         this.context.addNote(note)
-        this.props.history.push(`/folders/${note.folderId}`)
+        this.props.history.push(`/folders/${note.folder}`)
       })
       .catch(error => {
         console.error({ error })
@@ -106,7 +107,7 @@ export default class AddNote extends Component {
   }
 
   render() {
-    const { name, folderId, content, folderValid, contentValid, nameValid, validationMessages } = this.state
+    const { name, folder, content, folderValid, contentValid, nameValid, validationMessages } = this.state
     const { folders } = this.context
     const folderArray = folders.map(folder => {
       return (

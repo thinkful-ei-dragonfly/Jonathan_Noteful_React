@@ -27,7 +27,7 @@ export default class NoteListMain extends React.Component {
               <Note
                 id={note.id}
                 name={note.name}
-                modified={note.modified}
+                date_published={note.date_published}
               />
             </li>
           )}
@@ -47,4 +47,8 @@ export default class NoteListMain extends React.Component {
       </section>
     )
   }
+}
+
+NoteListMain.propTypes = {
+  
 }
