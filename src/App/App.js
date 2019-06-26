@@ -5,8 +5,6 @@ import NoteListNav from '../NoteListNav/NoteListNav'
 import NotePageNav from '../NotePageNav/NotePageNav'
 import NoteListMain from '../NoteListMain/NoteListMain'
 import NotePageMain from '../NotePageMain/NotePageMain'
-import FolderError from '../FolderError/FolderError'
-import NoteError from '../NoteError/NoteError'
 import AddFolder from '../AddFolder/AddFolder'
 import AddNote from '../AddNote/AddNote'
 import ApiContext from '../ApiContext'
@@ -111,23 +109,11 @@ class App extends Component {
         />
         <Route
           path='/add-folder'
-          render={routeProps => {
-            return(
-                <FolderError>
-                    <AddFolder value="hello"></AddFolder>
-                </FolderError>
-            )
-        }}
+          component={AddFolder}
         />
         <Route
           path='/add-note'
-          render={routeProps => {
-            return(
-                <NoteError>
-                    <AddNote value="hello"></AddNote>
-                </NoteError>
-            )
-        }}
+          component={AddNote}
         />
       </>
     )
