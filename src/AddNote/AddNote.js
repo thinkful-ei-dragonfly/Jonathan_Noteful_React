@@ -54,7 +54,7 @@ export default class AddNote extends Component {
 
     content = content.replace(/[\s-]/g, '')
     if (content.length === 0) {
-      fieldErrors.content = 'Note content cannot be emptry';
+      fieldErrors.content = 'Note content cannot be empty';
       contentValid = false;
       hasError = true;
     }
